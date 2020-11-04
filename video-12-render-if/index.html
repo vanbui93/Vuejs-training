@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video 12 - Render theo điều kiện if</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<style>
+    .tab {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    .tab li {
+        display: inline-block;
+        cursor: pointer;
+        padding: 10px 15px;
+        border: 1px solid #000;
+    }
+    .login, .regist {
+        padding: 15px;
+        border: 2px solid blue;
+        margin-top: 20px;
+    }
+</style>
+<body>
+    <!-- v-mode -->
+    <div id="app">
+        <ul class="tab">
+            <li v-on:click="changeTabs('login')">Đăng nhập</li>
+            <li v-on:click="changeTabs('regist')">Đăng kí</li>
+        </ul>
+        <div class="login" v-if="tabSelected==='login'">
+            <h3>Đăng nhập</h3>
+            <form action="">
+                <input type="text" placeholder="Nhập username">
+                <input type="password" placeholder="Nhập password">
+            </form>
+        </div>
+        <div class="regist" v-else-if="tabSelected==='regist'">
+            <h3>Đăng kí</h3>
+            <form action="">
+                <input type="text" placeholder="Nhập username">
+                <input type="password" placeholder="Nhập password">
+                <input type="password" placeholder="Nhập lại password">
+            </form>
+        </div>
+    </div>
+</body>      
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            tabSelected: 'login'
+        },
+        methods: {
+            changeTabs(tab){
+                this.tabSelected = tab;
+            }  
+        },
+    })
+</script>
+</html>

@@ -268,3 +268,51 @@ Có nhiều cách để khai báo và sử dụng style
 ```js
 <div v-bind:style="[baseStyles, overridingStyles]"></div>
 ```
+
+## Video 12 - Render theo điều kiện
+- Sử dụng cú pháp v-if
+
+```js
+<div id="app">
+    <ul class="tab">
+        <li v-on:click="changeTabs('login')">Đăng nhập</li>
+        <li v-on:click="changeTabs('regist')">Đăng kí</li>
+    </ul>
+    <div class="login" v-if="tabSelected==='login'">
+        <h3>Đăng nhập</h3>
+        // do somethings
+    </div>
+    <div class="regist" v-else-if="tabSelected==='regist'">
+        <h3>Đăng kí</h3>
+        // do somethings
+    </div>
+</div>
+
+<script>
+var app = new Vue({
+    el: '#app',
+    data: {
+        tabSelected: 'login'
+    },
+    methods: {
+        changeTabs(tab){
+            this.tabSelected = tab;
+        }  
+    },
+})
+</script>
+```
+
+- Sử dụng cú pháp v-show, cách dùng tương tự v-if nhưng v-show sẽ luôn luôn được render<br>
+v-show sử dụng thuộc tính `display:none` để ẩn phẩn tử
+
+```js
+<div class="login" v-show="tabSelected==='login'">
+    <h3>Đăng nhập</h3>
+    // do somethings
+</div>
+<div class="regist" v-show="tabSelected==='regist'">
+    <h3>Đăng kí</h3>
+    // do somethings
+</div>
+```
