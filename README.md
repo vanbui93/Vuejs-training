@@ -187,3 +187,84 @@ Sử dụng cú pháp object `v-bind:class="objClass"`
 </script>
 
 ```
+
+## Video 11 - ràng buộc style cho phần tử
+
+Cú pháp `v-bind:style`<br>
+Có nhiều cách để khai báo và sử dụng style
+
+### Sử dụng cú pháp object
+- Cách 1: viết trực tiếp
+```js
+<div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px', marginTop: '20px'}">
+    text style bind style
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            activeColor: 'red',
+            fontSize: 20
+        }
+    })
+</script>
+```
+- Cách 2: bind vào 1 object
+
+```js
+<div v-bind:style="{background: background}">
+    <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px', marginTop: '20px'}">
+        text style bind style
+    </div>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            activeColor: 'red',
+            fontSize: 20,
+            bg: 'https://kinhbacweb.com/wp-content/uploads/2020/03/tong-hop-cac-mau-background-dep-nhat-10070.jpg',
+        },
+        computed: {
+            background(){
+                return 'url('+ this.bg +') no-repeat';
+            },
+        },
+    })
+</script>
+```
+
+- Cách 3: gọi object từ computed nhìn đỡ rối mắt hơn
+```js
+<div v-bind:style="objectStyle">
+    <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px', marginTop: '20px'}">
+        text style bind style
+    </div>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            activeColor: 'red',
+            fontSize: 20,
+            bg: 'https://kinhbacweb.com/wp-content/uploads/2020/03/tong-hop-cac-mau-background-dep-nhat-10070.jpg',
+        },
+        computed: {
+            objectStyle(){
+                return {
+                    background: 'url('+ this.bg +') no-repeat', 
+                    height: '100vh'
+                }
+            }
+        },
+    })
+</script>
+```
+
+### Sử dụng cú pháp mãng
+```js
+<div v-bind:style="[baseStyles, overridingStyles]"></div>
+```

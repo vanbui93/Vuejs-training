@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video 11 - Bindings Style</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<style>
+</style>
+<body>
+    <!-- v-mode -->
+    <div id="app">
+        <div v-bind:style="objectStyle">
+            <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px', marginTop: '20px'}">
+                text style bind style
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            activeColor: 'red',
+            fontSize: 20,
+            bg: 'https://kinhbacweb.com/wp-content/uploads/2020/03/tong-hop-cac-mau-background-dep-nhat-10070.jpg',
+        },
+        methods: {
+            
+        },
+        computed: {
+            // background(){
+            //     return 'url('+ this.bg +') no-repeat';
+            // },
+
+            //sử dụng dạng object
+            objectStyle(){
+                return {
+                    background: 'url('+ this.bg +') no-repeat', 
+                    height: '100vh'
+                }
+            }
+        },
+    })
+</script>
+</html>
