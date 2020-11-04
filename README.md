@@ -148,3 +148,42 @@ Vuejs cung cấp sẳn 1 chỉ thị directive v-model để thao tác nhanh hơ
     })
 </script>
 ```
+
+## Video 10 - ràng buộc class
+Bản chất class cũng là 1 attribute, nên có thể sử dụng `v-bind` để ràng buộc<br>
+Sử dụng cú pháp object `v-bind:class="objClass"`
+```js
+<div id="app">
+    <div class="demo" v-bind:class="objClass">binding classes</div>
+
+    <button v-on:click="changeActive">Change Active</button>
+    <button v-on:click="changeError">Change Error</button>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            isActive: true,
+            isError: false
+        },
+        methods: {
+            changeActive(){
+                this.isActive = !this.isActive
+            },
+            changeError(){
+                this.isError = !this.isError
+            }
+        },
+        computed: {
+            objClass: function() {
+                return {
+                    active: this.isActive, 
+                    error: this.isError
+                }
+            }
+        },
+    })
+</script>
+
+```

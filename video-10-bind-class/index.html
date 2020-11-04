@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video 10 - Bindings HTML Classes</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<style>
+.demo {
+    width: 200px;
+    padding: 10px 5px;
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+    background: #000;
+}
+.active {
+    color:chartreuse;
+}
+.error {
+    color: crimson;
+}
+</style>
+<body>
+    <!-- v-mode -->
+    <div id="app">
+        <div class="demo" v-bind:class="objClass">binding classes</div>
+        <button v-on:click="changeActive">Toggle Active</button>
+        <button v-on:click="changeError">Toggle Error</button>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            firstName:'',
+            about:'',
+            textClass: 'active',
+            isActive: true,
+            isError: false
+        },
+        methods: {
+            changeActive(){
+                this.isActive = !this.isActive
+                this.isError = false
+            },
+            changeError(){
+                this.isError = !this.isError
+                this.isActive = false
+            }
+        },
+        computed: {
+            objClass: function() {
+                return {
+                    active: this.isActive, 
+                    error: this.isError
+                }
+            }
+        },
+    })
+</script>
+</html>
