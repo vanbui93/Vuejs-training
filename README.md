@@ -54,3 +54,19 @@ sử dụng `v-on`
 ```
 
 ## Video 7 - Cách sử dụng event modifiers.
+Vue cung cấp sẳn các xử lý event 
+- .stop - e.stopPropagation()
+- .prevent - event.preventdefault()
+- .capture
+- .self
+- .once
+ví dụ<br>
+
+```js
+<a v-on:click.stop="doThis"></a>
+
+<form v-on:submit.prevent="onSubmit"></form>
+
+<!-- ta có thể nối modifier với nhau -->
+<a v-on:click.stop.prevent="doThat"></a>
+```
