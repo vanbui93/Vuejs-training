@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video 6 - Event handling</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<style>
+    .box {
+        width: 200px;
+        height: 200px;
+        background: aqua;
+    }
+</style>
+<body>
+    <div id="app">
+        <h2>Count: {{counter}}</h2>
+        <h2>Count 2: {{counter2}}</h2>
+        <h2>Count 3 has event: {{counterevent}}</h2>
+        <button v-on:click="handleClick">Click to increase</button>
+        <button v-on:click="handleClick2(5)">Click to + 5</button>
+        <button v-on:click="handleClickEvent($event, 5)">Click and event</button>
+
+        <div class="box" v-on:mousemove="handleMouseMove">
+            <p>Client X: {{clientX}}</p>
+            <p>Client Y: {{clientY}}</p>
+        </div>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            counter: 0,
+            counter2: 0,
+            counterevent: 0,
+
+            clientX: 0,
+            clientY:0,
+        },
+        methods: {
+            handleClick(e) {
+                console.log('handleClick log this', this)
+                this.counter +=1;
+            },
+            handleClick2(number) {
+                console.log('handleClick 2 log this', this)
+                this.counter2 +=number;
+            },
+            handleClickEvent(e, number) {
+                console.log('click handleClickEvent log event', e);
+                console.log('this', this);
+
+                this.counterevent +=number;
+            },
+
+            handleMouseMove(e) {
+                this.clientX = e.clientX;
+                this.clientY = e.clientY;
+            }
+        },
+    })
+</script>
+</html>
