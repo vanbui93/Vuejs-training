@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video 9 - Two way bindings and Class and Style</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<style>
+
+</style>
+<body>
+    <!-- v-mode -->
+    <div id="app">
+        <h1>FirstName = {{firstName}}</h1>
+        <input v-model="firstName" type="text" placeholder="Nhập firstName">
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            firstName:''
+        },
+        methods: {
+
+        },
+    })
+</script>
+</html>

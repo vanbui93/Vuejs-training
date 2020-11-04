@@ -103,3 +103,48 @@ var app = new Vue({
         },
     })
 ``` 
+
+## Video 9 - ràng buộc dữ liệu 2 chiều
+
+Vuejs cung cấp sẳn 1 chỉ thị directive v-model để thao tác nhanh hơn
+
+- Cách viết thông thường
+```js
+<div id="app">
+    <h1>FirstName = {{firstName}}</h1>
+    <input v-on:keyup="handleKeyUp" type="text" placeholder="Nhập firstName">
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            firstName:''
+        },
+        methods: {
+            handleKeyUp(e){
+                console.log(e.target.value);
+                this.firstName = e.target.value;
+            }
+        },
+    })
+</script>
+
+- Viết theo v-model
+```js
+<div id="app">
+    <h1>FirstName = {{firstName}}</h1>
+    <input v-model="firstName" type="text" placeholder="Nhập firstName">
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            firstName:''
+        },
+        methods: {
+        },
+    })
+</script>
+```
