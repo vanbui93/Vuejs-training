@@ -1,5 +1,6 @@
 # Vuejs-training
 1. Tìm hiểu Vuejs là gì ?
+Vue là ứng dụng web SPA - Single page aplication
 cú pháp
 ```sh
 var vm = new Vue({
@@ -70,3 +71,35 @@ ví dụ<br>
 <!-- ta có thể nối modifier với nhau -->
 <a v-on:click.stop.prevent="doThat"></a>
 ```
+
+## Video 8 - Tìm hiểu về computed
+Computed ko cần lời gọi hàm dấu **()**<br>
+vd ko cần reverseMessage() mà gọi trực tiếp **reverseMessage**<br>
+
+So sánh computed và methods: <br>
+- mặc dù **computed** được khai báo như 1 hàm nhưng khi gọi sử dụng thì ko phải là 1 hàm<br>
+nó được sử dụng để khai báo trong vue<br>Khi được gọi tới thì chỉ chạy mình nó (cái được gọi)<br>
+giúp cho trang web nhanh hơn.
+- **methods** được khai báo và sử dụng như 1 hàm<br>
+Khi được gọi thì sẽ render lại toàn bộ trang và chạy hết tất cả các hàm
+```js
+<p>reverseMessageMethod(): {{reverseMessageMethod()}}</p>
+<p>reverseMessage - Computed ko cần lời gọi hàm: {{reverseMessage}}</p>
+
+var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'hello word'
+        },
+        methods: {
+            reverseMessageMethod() {
+                return this.message.split('').reverse().join('');
+            }
+        },
+        computed: {
+            reverseMessage() {
+                return this.message.split('').reverse().join('');
+            }
+        },
+    })
+``` 
