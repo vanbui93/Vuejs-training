@@ -334,11 +334,21 @@ v-show sử dụng thuộc tính `display:none` để ẩn phẩn tử
 </div>
 ```
 
+
+## Video 14: Lưu ý về sử dụng vòng lặp for
 - `v-for` dùng với `v-if`
 Khi được dùng trên dùng một node, v-for có độ ưu tiên cao hơn v-if<br>
 ví dụ dưới đây lấy danh sách những todo không phải là isComplete
 ```js
 <li v-for="todo in todos" v-if="!todo.isComplete">
   {{ todo }}
+</li>
+```
+
+Ví dụ dưới: lọc danh sách những user có trạng thái isActive
+
+```js
+<li class="user" v-for="user in arrUser" v-if="user.isActive">
+    {{user.email}}
 </li>
 ```
