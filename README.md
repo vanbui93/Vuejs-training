@@ -352,3 +352,17 @@ Ví dụ dưới: lọc danh sách những user có trạng thái isActive
     {{user.email}}
 </li>
 ```
+
+- `v-for` và `filter`
+dùng 1 hàm **userActive** để filter user ra, sau đó for trên **userActive**
+```js
+ <li class="user" v-for="user in userActive">{{user.email}}</li>
+
+ computed: {
+    userActive(){
+        return this.arrUser.filter(function(u){
+            return u.isActive;
+        })
+    }
+},
+```

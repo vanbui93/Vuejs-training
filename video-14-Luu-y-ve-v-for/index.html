@@ -14,6 +14,11 @@
             <ul>
                 <li class="user" v-for="user in arrUser" v-if="user.isActive">{{user.email}}</li>
             </div>
+
+            <!-- không dùng v-if mà dùng filter, nội dung hiển thị ra không bị comment và tường minh hơn -->
+            <ul>
+                <li class="user" v-for="user in userActive">{{user.email}}</li>
+            </div>
           </div>
     </div>
 </body>      
@@ -28,7 +33,14 @@
                 { email:'test04@gmail.com', isActive: true },
                 { email:'test05@gmail.com', isActive: false }
             ]
-        }
+        },
+        computed: {
+            userActive(){
+                return this.arrUser.filter(function(u){
+                    return u.isActive;
+                })
+            }
+        },
     })
 </script>
 </html>
