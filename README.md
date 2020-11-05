@@ -433,3 +433,4 @@ Kiểm tra nếu `this.selectedColor === index` thì sẽ add class `active`
 }
 </script>
 ```
+
