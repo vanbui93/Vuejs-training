@@ -453,10 +453,10 @@ $ npm run dev //chạy lên
 - Trong 1 website sẽ có nhiều component được tổ chức dưới dạng 
 
 
-+--App<br>
-|   +--Header<br>
-|   +--ListUser<br>
-|   +--Footer<br>
+└──App<br>
+   └──Header<br>
+   └──ListUser<br>
+   └──Footer<br>
 
 ```js
 <template>
