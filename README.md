@@ -482,3 +482,41 @@ export default {
 }
 </script>
 ```
+
+## Video 26 - Tìm hiểu props down
+- Truyền props từ component cha vào component con
+- Cú pháp giống thuộc tính, ràng buộc thuộc tính, sử dụng `v-bind` để Vue biết đó là 1 biến <br>
+`<comp-header v-bind:titleHeader="title"/>`<br>
+
+Ví dụ dưới: truyền `title` từ app.vue vào trong CompHeader.vue  thông qua props `titleHeader`
+```js
+// App.vue
+
+<comp-header v-bind:titleHeader="title"/>
+    <list-user/>
+<comp-footer/>
+
+export default {
+    name: 'App',
+    data() {
+        return {
+        title: "Hello props - đã truyền thành công"
+        }
+    },
+}
+```
+
+```js
+// CompHeader.vue
+
+<header>
+    <h2>{{titleHeader}}</h2>
+</header>
+
+export default {
+    name: 'comp-header',
+    props: {
+        titleHeader: String
+    }
+}
+```

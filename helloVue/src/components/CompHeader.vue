@@ -1,15 +1,18 @@
 <template>
-  <footer>
-      <h2>{{textHeader}}</h2>
-  </footer>
+  <header>
+      <h2>{{titleHeader}}</h2>
+  </header>
 </template>
 
 <script>
 export default {
     name: 'comp-header',
+    props: {
+        titleHeader: String
+    },
     data() {
         return {
-            textHeader: "Hello header"
+            
         }
     }
 }
