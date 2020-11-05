@@ -442,9 +442,43 @@ mỗi thành phần được quản lý bởi đối tượng Vue
 tìm từ khóa **vuejs template webpack**
 
 ```sh
-$ npm install -g vue-cli  //cài đặt vue global, có thể install bất kì nơi đâu trong máy tính
+$ npm install -g @vue/cli  //cài đặt vue global, có thể install bất kì nơi đâu trong máy tính
 $ vue init webpack my-project  //cài đặt webpack để đóng gói ứng dụng
 $ cd my-project
 $ npm install  //cài đặt node js
 $ npm run dev //chạy lên
+```
+
+## Video 25 - Cài đặt mã nguồn và tổ chức các component lồng nhau
+- Trong 1 website sẽ có nhiều component được tổ chức dưới dạng 
+
+
++--App<br>
+|   +--Header<br>
+|   +--ListUser<br>
+|   +--Footer<br>
+
+```js
+<template>
+  <div id="app">
+    <comp-header/>
+     <list-user/>
+    <comp-footer/>   
+  </div>
+</template>
+
+<script>
+import CompHeader from './components/CompHeader'
+import ListUser from './components/ListUser'
+import CompFooter from './components/CompFooter'
+
+export default {
+  name: 'App',
+  components: {
+    CompHeader,
+    CompFooter,
+    ListUser,
+  }
+}
+</script>
 ```
