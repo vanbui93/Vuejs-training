@@ -374,3 +374,62 @@ Muốn thêm 1 phần tử vào trong mãng, cần theo cú pháp hệ thống c
 target: array<br>
 key: index<br>
 number: new value
+
+## Video 17 & 19 - bài tập thực tế
+- Video 19: thay đổi color khi người dùng handleClick change color
+
+```js
+<b-row>
+    <b-col cols="2">{{getProduct.variant}}</b-col>
+    <b-col cols="10" class="img-thumnail">
+        <b-list-group horizontal>
+            <b-list-group-item 
+                v-for="(item,index) in listProductDetail"
+                v-on:click="handleClickColor($event,index)"
+            >
+                <img v-bind:src="item.image" width="50" v-bind:alt="item.variant">
+            </b-list-group-item>
+        </b-list-group>
+    </b-col>
+</b-row>
+
+<script>
+data: {
+    selectedColor: 0
+},
+methods: {
+    handleClickColor(e, index) {
+        this.selectedColor = index;
+    }
+},
+computed: {
+    getProduct(){
+        let index = this.selectedColor;
+        return this.listProductDetail[index];
+    }
+}
+</script>
+```
+
+- Change class active
+Kiểm tra nếu `this.selectedColor === index` thì sẽ add class `active`
+
+```js
+ <b-list-group-item 
+    v-for="(item,index) in listProductDetail"
+    v-bind:class="classActive(index)"
+    v-bind:key="index"
+>
+    <img v-bind:src="item.image" width="50" v-bind:alt="item.variant">
+</b-list-group-item>
+
+<script>
+ methods: {
+    classActive(index) {
+        return {
+            active: this.selectedColor === index
+        }
+    }
+}
+</script>
+```
