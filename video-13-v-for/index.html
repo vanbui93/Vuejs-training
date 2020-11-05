@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video 13 - List rendering vòng lặp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+    <!-- v-mode -->
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 blog" v-for="item in listBlogs">
+                    <h4 class="title">{{item.title}}</h4>
+                    <div class="description">{{item.body}}</div>
+                </div>
+            </div>
+          </div>
+    </div>
+</body>      
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            listBlogs: [
+                {
+                    "userId": 1,
+                    "id": 1,
+                    "title": "Sử dụng v-for",
+                    "body": "Chúng ta có thể dùng directive v-for để render một danh sách các item dựa trên một mảng. Directive v-for đòi hỏi một cú pháp đặc biệt dưới dạng item in items, trong đó items là mảng dữ liệu nguồn và item trỏ đến phần tử mảng đang được duyệt đến:"
+                },
+                {
+                    "userId": 1,
+                    "id": 2,
+                    "title": "Bên trong vòng lặp",
+                    "body": "Bên trong vòng lặp v-for chúng ta có toàn quyền truy xuất đến các thuộc tính của scope cha. v-for cũng hỗ trợ một tham số thứ hai (không bắt buộc) chỉ số thứ tự (index) của phần tử mảng hiện hành."
+                },
+                {
+                    "userId": 1,
+                    "id": 3,
+                    "title": "Dùng of thay thế in",
+                    "body": "Bạn cũng có thể dùng of để phân cách thay vì in. Cách này cũng gần hơn với cú pháp vòng lặp trong JavaScript."
+                }
+            ]
+        }
+    })
+</script>
+</html>

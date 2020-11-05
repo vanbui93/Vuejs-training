@@ -316,3 +316,29 @@ v-show sử dụng thuộc tính `display:none` để ẩn phẩn tử
     // do somethings
 </div>
 ```
+
+## Video 13 - Render danh sách kiến thức vòng lặp v-for
+
+- sử dụng v-for để lặp 1 mãng
+```js
+<div class="col-4 blog" v-for="item in listBlogs">
+    <h4 class="title">{{item.title}}</h4>
+    <div class="description">{{item.body}}</div>
+</div>
+```
+- Nếu muốn lấy `key` ra
+
+```js
+<div v-for="(value, key) in object">
+  {{ key }}: {{ value }}
+</div>
+```
+
+- `v-for` dùng với `v-if`
+Khi được dùng trên dùng một node, v-for có độ ưu tiên cao hơn v-if<br>
+ví dụ dưới đây lấy danh sách những todo không phải là isComplete
+```js
+<li v-for="todo in todos" v-if="!todo.isComplete">
+  {{ todo }}
+</li>
+```
