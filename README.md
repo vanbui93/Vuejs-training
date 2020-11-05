@@ -366,3 +366,11 @@ dùng 1 hàm **userActive** để filter user ra, sau đó for trên **userActiv
     }
 },
 ```
+
+## Video 15 - Lưu ý quan trọng về array và object
+- Thêm 1 phần tử vào mãng
+Muốn thêm 1 phần tử vào trong mãng, cần theo cú pháp hệ thống của vuejs
+`app.$set(target, key, number)`
+target: array<br>
+key: index<br>
+number: new value
