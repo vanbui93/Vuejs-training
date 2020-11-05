@@ -434,3 +434,17 @@ Kiểm tra nếu `this.selectedColor === index` thì sẽ add class `active`
 </script>
 ```
 
+## Video 21 - Giới thiệu và cài đặt Vue CLI
+- Để áp dụng ở 1 ứng dụng lớn hơn, nên sử dụng SPA - single page aplication
+- 1 trang web được chia nhiều thành phần component<br>
+mỗi thành phần được quản lý bởi đối tượng Vue
+- **CLI** Command line interface
+tìm từ khóa **vuejs template webpack**
+
+```sh
+$ npm install -g vue-cli  //cài đặt vue global, có thể install bất kì nơi đâu trong máy tính
+$ vue init webpack my-project  //cài đặt webpack để đóng gói ứng dụng
+$ cd my-project
+$ npm install  //cài đặt node js
+$ npm run dev //chạy lên
+```
