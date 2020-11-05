@@ -454,9 +454,9 @@ $ npm run dev //chạy lên
 
 
 └──App<br>
-   └──Header<br>
-   └──ListUser<br>
-   └──Footer<br>
+|   ---Header<br>
+|   ---ListUser<br>
+|   ---Footer<br>
 
 ```js
 <template>
