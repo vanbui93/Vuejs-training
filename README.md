@@ -520,3 +520,7 @@ export default {
     }
 }
 ```
+
+## Video 27 - Tìm hiểu về Event Up
+- Chỉ được quyền thay đổi data từ component cha
+- Truyền event từ component cha sang component con, component con ko có quyền thay đổi dữ liệu
