@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <comp-header v-bind:titleHeader="title"/>
-     <list-user v-bind:listUser="listUser"/>
+    <button v-on:click="title='Sự kiện Props Down -> Cha truyền vào con, con chỉ được sử dụng ko được phép thay đổi'">Thay đổi title từ component App.vue</button>
+    <comp-header
+      v-bind:titleHeader="title"
+      v-on:propsChangeTitle="handeChangeTitle"/>
+    <list-user v-bind:listUser="listUser"/>
     <comp-footer/>   
   </div>
 </template>
@@ -24,6 +27,11 @@ export default {
         { id: 5, email:'test05@gmail.com', isActive: false },
         { id: 6, email:'test06@gmail.com', isActive: true }
       ]
+    }
+  },
+  methods: {
+    handeChangeTitle(e) {
+      console.log('handeChangeTitle');
     }
   },
   components: {
