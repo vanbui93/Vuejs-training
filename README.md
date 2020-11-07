@@ -568,4 +568,16 @@ handleClickInputFile(e){
 
 ## Video 30 - tìm hiểu về slot
 - Truyền html từ component cha sang component con, giống như thuộc tính {props.children} ở reactJS
-- Component con sẽ thừa kế từ component cha.
+- Component con sẽ thừa kế từ component cha, sử dụng thẻ `<slot></slot>`
+ví dụ
+```js
+// App.vue
+<demo-slot>
+    <h1>Nội dung slot từ component cha</h1>
+</demo-slot>
+
+//DemoSlot.vue
+<div class="demo-slot">
+    <slot></slot>
+</div>
+```

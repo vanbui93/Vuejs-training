@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <demo-slot/>
+    <demo-slot>
+      <h1>Nội dung slot từ component cha</h1>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui in enim at velit. Maxime ea amet iure rerum, corporis quibusdam minima, vero itaque praesentium et architecto excepturi, culpa nulla. Quos.</p>
+    </demo-slot>
   </div>
 </template>
 

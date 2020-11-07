@@ -1,6 +1,7 @@
 <template>
   <div class="demo-slot">
       <h1>Demo Slot</h1>
+      <slot></slot>
   </div>
 </template>
 
