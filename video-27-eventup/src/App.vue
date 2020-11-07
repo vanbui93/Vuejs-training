@@ -4,7 +4,9 @@
     <comp-header
       v-bind:titleHeader="title"
       v-on:propsChangeTitle="handeChangeTitle"/>
-    <list-user v-bind:listUser="listUser"/>
+    <list-user 
+      v-bind:listUser="listUser"
+      v-on:deleteUserEvent="handleDelete"/>
     <comp-footer/>   
   </div>
 </template>
@@ -33,6 +35,17 @@ export default {
     handeChangeTitle(data) {
       this.title = data.title;
       console.log('handeChangeTitle',data);
+    },
+    handleDelete(id){
+      let indexDelete = -1;
+      this.listUser.map((item,index) => {
+        if(item.id === id) {
+          indexDelete = index;
+        }
+        if(indexDelete !==-1){
+          this.listUser.splice(indexDelete,1);
+        }
+      })
     }
   },
   components: {

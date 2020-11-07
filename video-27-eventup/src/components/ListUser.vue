@@ -5,6 +5,7 @@
             v-for="users in listUser"
             v-bind:key="users.id"
             v-bind:users="users"
+            v-on:propsListDelete="handleDeleteUser"
         />
     </div>
   </div>
@@ -27,7 +28,12 @@ export default {
     },
     components : {
         User
-    }
+    },
+    methods: {
+        handleDeleteUser(id){
+            this.$emit('deleteUserEvent',id);
+        }
+    },
 }
 </script>
 

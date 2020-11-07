@@ -1,8 +1,9 @@
 <template>
   <div class="col-4">
-      <p class="user">
-          {{users.email}}
-      </p>
+      <div class="user">
+          <p>{{users.email}}</p>
+          <button class="delete" v-on:click="handleDelete">Delete</button>
+      </div>
   </div>
 </template>
 
@@ -19,7 +20,14 @@ export default {
         return {
 
         }
-    }
+    },
+    methods: {
+        handleDelete (){
+            const id = this.users.id;
+            this.$emit('propsListDelete', id);
+            console.log('handleDelete');
+        }
+    },
 }
 </script>
 
@@ -31,5 +39,11 @@ export default {
     align-items: center;
     display: flex;
     justify-content: center;
+    position: relative;
+}
+.user button {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 </style>
