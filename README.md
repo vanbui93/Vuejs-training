@@ -524,3 +524,26 @@ export default {
 ## Video 27 - Tìm hiểu về Event Up
 - Chỉ được quyền thay đổi data từ component cha
 - Truyền event từ component cha sang component con, component con ko có quyền thay đổi dữ liệu
+- Sử dụng cú pháp sau để truyền props từ cha sang con, và ngược tại truyền data, event từ con sang cha
+`this.$emit('functionHandle',data);`
+
+```js
+//component cha
+<comp-header
+    v-bind:titleHeader="title"
+    v-on:propsChangeTitle="handeChangeTitle"/>
+//----
+handeChangeTitle(data) {
+    console.log(data);
+}
+
+//component con
+<button v-on:click="changeTitleHeader">Thay đổi title từ CompHeader.vue</button>
+//-----
+changeTitleHeader(e) {
+    let data = {
+        title: "test -> data truyền thông qua biến event"
+    };    
+    this.$emit('propsChangeTitle',data);
+}
+```

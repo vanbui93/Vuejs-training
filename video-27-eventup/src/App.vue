@@ -30,8 +30,9 @@ export default {
     }
   },
   methods: {
-    handeChangeTitle(e) {
-      console.log('handeChangeTitle');
+    handeChangeTitle(data) {
+      this.title = data.title;
+      console.log('handeChangeTitle',data);
     }
   },
   components: {

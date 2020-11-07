@@ -24,8 +24,10 @@ export default {
             //-> Kruyền sự kiện thông báo ra bên ngoài
             // -> Kích hoạt sự kiện 'propsChangeTitle' trong compHeader.vue
             //-> Sau kích hoạt, function propsChangeTitle ngoài file App.vue sẽ chạy
-
-            this.$emit('propsChangeTitle');
+            let data = {
+                title: "test -> data truyền từ compoheader thông qua biến event"
+            }
+            this.$emit('propsChangeTitle',data);
 
             console.log('comp header: ', this.titleHeader);
         },
