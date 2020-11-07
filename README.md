@@ -547,3 +547,25 @@ changeTitleHeader(e) {
     this.$emit('propsChangeTitle',data);
 }
 ```
+## Video 29 - tìm hiểu về ref
+- ref là reference (tham chiếu) đến 1 phần từ khác
+- ví dụ dưới là : ẩn input chọn file mặc định, customize lại bằng 1 button khác có chức năng tương tự `input file`
+```js
+<button class="avatar" 
+    v-on:click="handleClickInputFile">Thay đổi Avatar
+</button>
+
+<input 
+    type="file" 
+    style="display:none"
+    ref="fileInputAvatar"
+/>
+
+handleClickInputFile(e){
+    this.$refs.fileInputAvatar.click()
+}
+```
+
+## Video 30 - tìm hiểu về slot
+- Truyền html từ component cha sang component con, giống như thuộc tính {props.children} ở reactJS
+- Component con sẽ thừa kế từ component cha.
